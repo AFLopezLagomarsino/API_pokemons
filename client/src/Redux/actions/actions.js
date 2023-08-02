@@ -34,6 +34,7 @@ export function getTypes(){
                 payload: types.data
             })
         }
+            //eslint-disable-next-line no-unreachable    
     } catch (error) {
         console.log(error)
     }
@@ -51,6 +52,7 @@ export function getByName (name) {
                 payload: data
             })
         }
+        //eslint-disable-next-line no-unreachable
         } catch (error) {
             console.log(error)
     }
@@ -65,6 +67,7 @@ export function getDetail(id){
                 payload: detail.data
             })
         }
+        //eslint-disable-next-line no-unreachable
     } catch (error) {
         console.log(error)
     }
@@ -107,6 +110,7 @@ export function postPokemon(payload){
                 payload: post.data
             })
         }
+        //eslint-disable-next-line no-unreachable
     } catch (error) {
         console.log(error)
     }

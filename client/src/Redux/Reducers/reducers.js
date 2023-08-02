@@ -1,4 +1,3 @@
-import { orderByAlphabet } from "../actions/actions"
 import {
     GET_POKEMON,
     GET_TYPES,

@@ -6,7 +6,7 @@ function Card (props) {
       <div>
          <h2>{name}</h2>
          <img src={image} alt={name} />
-         <p>{types}</p>
+         <p>{`${types}`}</p>
       </div>
    )
 
