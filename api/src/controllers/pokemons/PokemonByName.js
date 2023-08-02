@@ -10,7 +10,7 @@ const pokemonByName = async (name) =>{
     //  }
     //  return names
     
-    const result = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}`)
+    const result = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name.toLowerCase()}`)
     
     const pokemon = result.data
     if(result.data){

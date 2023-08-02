@@ -3,7 +3,7 @@ const {Pokemon, Type} = require ("../../db")
 
 const AllPokemons = async () => {
     //entro a la url de la api
-    const result = await axios.get("https://pokeapi.co/api/v2/pokemon?limit=100")
+    const result = await axios.get("https://pokeapi.co/api/v2/pokemon?limit=20")
 
     //avanzo a la siguiente pagina de la api
     const next = await axios.get(result.data.next)
