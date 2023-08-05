@@ -34,7 +34,7 @@ function rootReducer (state = initialState, action) {
         case GETPOKEMONBYNAME:
             return{
                 ...state,
-                dogs: action.payload
+                pokemons: action.payload
             }
         case DETAILBYID:
             return {
@@ -42,21 +42,42 @@ function rootReducer (state = initialState, action) {
                 detail: action.payload
             }
         case FILTERBYAPIORBD:
-            const pokeCopy = state.pokeCopy
-            const filter = action.payload === "BD" ? pokeCopy.filter((poke) => poke.createdInDb) : pokeCopy.filter((poke) => !poke.createdInDb)
+            let filteredPokemons = [...state.pokemons]
+            if (action.payload === "BD"){
+                filteredPokemons = state.pokeCopy.filter((pokemon)=> isNaN(pokemon.id))
+            } else if(action.payload === "Api"){
+                filteredPokemons = state.pokeCopy.filter((pokemon)=>  !isNaN(pokemon.id))
+            }else{
+                filteredPokemons = state.pokeCopy
+            }
+            console.log(filteredPokemons)
             return {
                 ...state,
-                pokemons: action.payload === "All" ? pokeCopy : filter
+                pokemons: filteredPokemons
             }
 
-        // case FILTERBYTYPE:
-        //     return {
-        //         ...state,
-        //         pokemons: action.payload
-        //     }
+            case FILTERBYTYPE:
+                let filteredType = [...state.pokemons];
+                    filteredType = state.pokeCopy.filter((poke) => {
+                      if (Array.isArray(poke.types)) {
+                        if (poke.types.some((type) => type.name === action.payload)) {
+                          return true;
+                        }
+                        if (poke.types.includes(action.payload)) {
+                          return true;
+                        }
+                      }
+                      return false;
+                    });
+                return {
+                  ...state,
+                  pokemons: filteredType,
+                };
+
         case ORDERBYALPHABET:
+            const pokes = [...state.pokemons]
             let orderSortAlphabet = action.payload === "asc" ?
-            state.pokemons.sort((a,b) =>{
+            pokes.sort((a,b) =>{
                 if (a.name > b.name){
                     return 1
                 }
@@ -65,7 +86,7 @@ function rootReducer (state = initialState, action) {
                 }
                 return 0
             }) :
-            state.dogs.sort((a,b) =>{
+            pokes.sort((a,b) =>{
                 if (a.name < b.name){
                     return 1
                 }
@@ -79,8 +100,9 @@ function rootReducer (state = initialState, action) {
                 pokemons: orderSortAlphabet
             }
         case ORDERBYATTACK:
+            const pokesCopy = [...state.pokemons]
             let orderSortAttack = action.payload === "asc" ?
-            state.pokemons.sort((a,b) =>{
+            pokesCopy.sort((a,b) =>{
                 if (a.attack > b.attack){
                     return 1
                 }
@@ -89,18 +111,22 @@ function rootReducer (state = initialState, action) {
                 }
                 return 0
             }) :
-            state.pokemons.sort((a,b) =>{
-                if (a.attack < b.attack){
-                    return 1
-                }
+            pokesCopy.sort((a,b) =>{
                 if (a.attack > b.attack){
                     return -1
+                }
+                if (a.attack < b.attack){
+                    return 1
                 }
                 return 0
             })
             return {
                 ...state,
                 pokemons: orderSortAttack
+            }
+        case POSTPOKEMON:
+            return{
+                ...state
             }
     
         default:

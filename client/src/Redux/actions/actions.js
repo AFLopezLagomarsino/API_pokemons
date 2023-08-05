@@ -43,7 +43,8 @@ export function getByName (name) {
     try {
         return async function (dispatch){
             let {data} = await axios.get(`http://localhost:3001/pokemon?name=${name}`)
-            if(data.length === 0){
+            let pokemon = Array.isArray(data)? data : [data]
+            if(pokemon.length === 0){
                 alert("no existe ese pokemon, crealo!")
                 return
             }
@@ -54,14 +55,14 @@ export function getByName (name) {
         }
         //eslint-disable-next-line no-unreachable
         } catch (error) {
-            console.log(error)
+            alert("no existe ese pokemon, crealo!")
     }
 }
 
 export function getDetail(id){
     try {
         return async function(dispatch){
-            const detail = await axios.get(`http://localhost:3001/pokemon/${id}`)
+            let detail = await axios.get(`http://localhost:3001/pokemon/${id}`)
             return dispatch({
                 type: DETAILBYID,
                 payload: detail.data
