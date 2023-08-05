@@ -16,7 +16,7 @@ module.exports = (sequelize) => {
     },
     image:{
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     health:{
       type: DataTypes.INTEGER,
@@ -35,11 +35,11 @@ module.exports = (sequelize) => {
       allowNull: false
     },
     height:{
-      type: DataTypes.INTEGER,
+      type: DataTypes.FLOAT,
       allowNull: false
     },
     weight:{
-      type: DataTypes.INTEGER,
+      type: DataTypes.FLOAT,
       allowNull: false
     },
     //funciona para el filtro del front
