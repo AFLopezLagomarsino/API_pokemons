@@ -4,6 +4,7 @@ import { getPokemons } from "../../Redux/actions/actions"
 import Card from "../Card/Card"
 import Pagination from "../Pagination/Pagination"
 import FilterAndOrder from "../Filter/Filter"
+import NavBar from "../NavBar/NavBar"
 
 function Home () {
     //estado global
@@ -23,11 +24,11 @@ function Home () {
 
     useEffect(() => {
         dispatch(getPokemons())
-    },[])
+    },[dispatch])
 
-    function handleClick(e){
+
+    function handlerPage(e){
         e.preventDefault()
-        dispatch(getPokemons())
         setCurrentPage(1)
     }
 
@@ -35,18 +36,20 @@ function Home () {
         <div>
             <h1> Pokedex </h1>
             <div>
-                <FilterAndOrder/>
+                <NavBar/>
+            </div>
+            <div>
+                <FilterAndOrder handlerPage={e=>handlerPage(e)}/>
             </div>
             <div>
             <Pagination pokePerPage={pokePerPage} pokemons={allPokemons.length} paginate={paginate} currentPage={currentPage}/>
             </div>
-            <button onClick={(e) => handleClick(e)}>Refresh</button>
             <div>
                 {
                     currentPoke?.map((el) => {
                         return(
                             <div>
-                                <Card key ={el.id} name={el.name} image ={el.image} types= {el.types} />
+                                <Card id ={el.id} name={el.name} image ={el.image} types= {el.types} />
                             </div>
                             ) 
                         })

@@ -10,7 +10,7 @@ function NavBar () {
         
         <div>
             <div>
-                <FilterAndOrder/>
+                <SearchBar/>
             </div>
             <div>
             <NavLink to= "/pokemon">
@@ -21,9 +21,6 @@ function NavBar () {
                     <NavLink to= "/about">
                         <button>Sobre mi</button>
                     </NavLink>
-                </div>
-                <div>
-                    <SearchBar/>
                 </div>
         </div>
     )
