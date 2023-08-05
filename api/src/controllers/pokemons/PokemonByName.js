@@ -14,7 +14,7 @@ const pokemonByName = async (name) =>{
     
     const pokemon = result.data
     if(result.data){
-        const poke = {
+        const poke = [{
             id: pokemon.id,
             name: pokemon.name,
             height: pokemon?.height,
@@ -25,7 +25,7 @@ const pokemonByName = async (name) =>{
             defense: pokemon.stats[2].base_stats,
             types:pokemon.types.map((el)=> el.type.name),
             image: pokemon.sprites.other["official-artwork"].front_default
-        }
+        }]
         return poke
     }
     const resultDb = await Pokemon.findOne({
