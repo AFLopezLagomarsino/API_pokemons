@@ -1,0 +1,328 @@
+@font-face{
+    font-family:"pokemon";
+    src:url("../../../public/pkmn_rbygsc/PKMN\ RBYGSC.ttf");
+}
+.layout{
+    background-color: rgb(255,223,128);
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 110vh;
+}
+
+.principal{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    margin-top: 3rem;
+    border-style: inset;
+    border-color: black;
+    border-radius: 8px;
+    max-width: 50rem;
+}
+
+
+.izq{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+    border-style: inset;
+    border-width: 2px;
+    background: rgb(152,216,160);
+    border-radius: 8px 0 0 8px ;
+}
+
+.der{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    border-style: inset;
+    background: rgb(240, 248, 248);
+    border-radius: 0 8px 8px 0;
+}
+
+.img{
+    width: 20rem;
+    height: 20rem;
+    align-items: center;
+}
+
+.name{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 2rem;
+    align-items: center;
+    background: linear-gradient(90deg, rgba(48,136,112,1) 0%, rgba(96,152,216,1) 0%, rgba(48,136,112,1) 79%);
+    font-family:"pokemon";
+    text-shadow: 1.5px 1px  rgb(255, 255, 255);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+.name h1{
+    margin: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+.stats{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 2rem;
+    align-items: center;
+    background-color:linear-gradient;
+    background: linear-gradient(90deg, rgba(48,136,112,1) 0%, rgba(96,152,216,1) 0%, rgba(48,136,112,1) 79%);
+    font-family:"pokemon";
+    text-shadow: 1.5px 1px rgb(255, 255, 255);
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+.stats h1{
+    margin: 0.5rem;
+}
+
+hr{
+    width: 100%;
+    margin: 0;
+    border-style: inset;
+    border-width: 2px;
+}
+
+.der h5{
+    text-align: left;
+    margin: 1rem;
+    margin-top: 2rem;
+    font-size: 2.2rem;
+    font-family:"pokemon";
+    text-shadow: 1.5px 1px  rgb(255, 255, 255);
+    text-transform: uppercase;
+}
+.izq h5{
+    text-align: left;
+    margin: 0.3rem;
+    font-size: 1.5rem;
+    font-family:"pokemon";
+    text-shadow: 1.5px 1px  rgb(255, 255, 255);
+    text-transform: uppercase;
+    
+}
+
+
+.back{
+    font-family: "pokemon";
+    font-size: 1rem;
+    text-shadow: 1px 2px 0px grey;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 2px solid #000000;
+    box-shadow: 3px 3px #000000;
+    cursor: pointer;
+    margin: 4rem;
+}
+.back:active {
+    box-shadow: none;
+    transform: translate(3px, 3px);
+  }
+
+
+.p{   
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+    font-family:"pokemon";
+    text-shadow: 1.5px 1px  grey;
+    color:azure;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+}
+
+.bug{
+    background-color: rgb(13, 105, 13);
+    border-radius: 10%;
+    border: none;
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 0px 2px 0px grey;
+}
+.dark{
+    background-color: rgb(32, 28, 39);
+    border-radius: 1%;
+    border: none;
+    margin: 10px;
+    color: bisque;
+    padding: 5px;
+    box-shadow: 0px 2px 0px grey;
+}
+.dragon{
+    background-color:aqua;
+    border-radius: 10%;
+    border: none;
+    padding: 5px;
+    margin: 10px;
+    box-shadow: 0px 2px 0px grey;
+}
+.electric{
+    background-color: rgb(255, 255, 0);
+    border-radius: 10%;
+    border: none;
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 0px 2px 0px grey;
+}
+.fairy{
+    background-color: rgb(177, 1, 54);
+    border-radius: 10%;
+    border: none;
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 0px 2px 0px grey;
+}
+.fighting{
+    background-color: red;
+    border-radius: 10%;
+    border: none;
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 0px 2px 0px grey;
+}
+.fire{
+    background-color: red;
+    border-radius: 10%;
+    border: none;
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 0px 2px 0px grey;
+}
+.flying{
+    background-color: rgb(137, 158, 196);
+    border-radius: 10%;
+    border: none;
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 0px 2px 0px grey;
+}
+.ghost{
+    background-color: rgb(37, 3, 95);
+    border-radius: 10%;
+    border: none;
+    margin: 10px;
+    color: bisque;
+    padding: 5px;
+    box-shadow: 0px 2px 0px grey;
+}
+.grass{
+    background-color: rgb(62, 190, 62);
+    border-radius: 10%;
+    border: none;
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 0px 2px 0px grey;
+}
+.ground{
+    background-color: rgb(150, 78, 19);
+    border-radius: 10%;
+    border: none;
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 0px 2px 0px grey;
+}
+.ice{
+    background-color: aquamarine;
+    border-radius: 10%;
+    border: none;
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 0px 2px 0px grey;
+}
+.normal{
+    background-color: rgb(129, 65, 69);
+    border-radius: 10%;
+    border: none;
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 0px 2px 0px grey;
+}
+.poison{
+    background-color: purple;
+    border-radius: 10%;
+    border: none;
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 0px 2px 0px grey;
+}
+.psychic{
+    background-color: rgb(255, 0, 255);
+    border-radius: 10%;
+    border: none;
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 0px 2px 0px grey;
+}
+.shadow{
+    background-color: rgb(0, 0, 0);
+    border-radius: 10%;
+    border: none;
+    margin: 10px;
+    padding: 5px;
+    color: bisque;
+    box-shadow: 0px 2px 0px grey;
+}
+.rock{
+    background-color: rgb(63, 45, 19);
+    border-radius: 10%;
+    border: none;
+    margin: 10px;
+    padding: 5px;
+    color: bisque;
+    box-shadow: 0px 2px 0px grey;
+}
+.steel{
+    background-color: rgb(42, 224, 179);
+    border-radius: 10%;
+    border: none;
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 0px 2px 0px grey;
+}
+.water{
+    background-color: blue;
+    color: bisque;
+    border-radius: 10%;
+    border: none;
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 0px 2px 0px grey;
+}
+.unknown{
+    background-color: rgb(255, 255, 255);
+    border-radius: 10%;
+    border: none;
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 0px 2px 0px grey;
+}
+
+@media (max-width: 1060px) {
+    .principal{
+       flex-direction: column;
+       align-items: center;
+       justify-content: center;
+       border-style: none;
+       max-width: 500px;
+    }   
+    .izq{
+       width: 100%;
+    }
+    .der{
+       width: 100%;
+    }
+    .img{
+       width: 12rem;
+       height: 12rem;
+    }
+   }

@@ -1,14 +1,11 @@
-import React from "react"
-
 import { NavLink } from "react-router-dom"
-
+import style from "./LandingPage.module.css"
 function LandingPage () {
 
     return (
-        <div>
-            <h1> Pokedex </h1>
+        <div className={style.div}>
             <NavLink to="/home" style = {{textDecoration: "none"}}>
-                <button>Home</button>
+                <button className={style.buttonHome}></button>
             </NavLink>
     
         </div>

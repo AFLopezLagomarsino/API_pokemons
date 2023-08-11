@@ -1,0 +1,51 @@
+.div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    background-image: url("../../../public/pokeball_landing.png");
+    background-size: cover;
+    background-position: center;
+    object-fit: cover;
+}
+
+.buttonHome{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    width: 160px;
+    height: 160px;
+    transform: translateX(-.45rem);
+    border: none;
+    background-color: transparent;
+    transition: 0.4s;
+    
+    
+}
+
+.buttonHome:hover{
+    cursor: pointer;
+    background-color: red;
+    animation-name: button-shadow;
+    animation-duration: 0.5s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes button-shadow{
+    0%{
+        box-shadow: 0 0 0 0 transparent;
+    }
+
+    100%{
+        box-shadow: 0 0px 50px red;
+    }
+    0%{
+        box-shadow: 0 0 0 0 transparent;
+    }
+
+}
+

@@ -1,27 +1,21 @@
 import { NavLink } from "react-router-dom"
-import FilterAndOrder from "../Filter/Filter"
 import SearchBar from "../SearchBar/SearchBar"
-
+import style from "./Navbar.module.css"
 
 function NavBar () {
 
 
     return (
         
-        <div>
-            <div>
+        <div className={style.divPrincipal}>
+            <div className={style.search}>
                 <SearchBar/>
             </div>
-            <div>
-            <NavLink to= "/pokemon">
-                <button>Crear pokemon</button>
-            </NavLink>
-            </div>
-                <div>
-                    <NavLink to= "/about">
-                        <button>Sobre mi</button>
+            <div className={style.divButton}>
+                    <NavLink to= "/pokemon">
+                <button className={style.buttonC}>Create a pokemon</button>
                     </NavLink>
-                </div>
+            </div>
         </div>
     )
 }

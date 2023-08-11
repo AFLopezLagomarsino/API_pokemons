@@ -1,0 +1,173 @@
+.div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+
+.reset{
+    align-items: center;
+    background-color: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: .25rem;
+    box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0 ;
+    box-sizing: border-box;
+    color: rgba(0, 0, 0, 0.85);
+    cursor: pointer;
+    display: inline-flex;
+    justify-content: center;
+    line-height: 1.25;
+    min-height: 3rem;
+    padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+    text-decoration: none;
+    transition: all 250ms;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    vertical-align: baseline;
+    width: auto;
+    font-family: "pokemon";
+    text-shadow: 1.5px 1px  grey;
+    text-transform: uppercase;
+}
+.reset:hover{
+    transform: translateY(-1px);
+}
+
+.reset:active{
+    background-color: #ffffff;
+    box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+    color: rgba(0, 0, 0, 0.65);
+    transform: translateY(0);
+}
+
+
+.divAttack{
+    display: flex;
+    flex-direction: column;
+    font-family: "pokemon";
+    text-shadow: 1.5px 1px  grey;
+}
+
+
+.attack{
+    font-family: "pokemon";
+    text-shadow: 1.5px 1px  grey;
+    text-transform: capitalize;
+    background: transparent;
+    border-style:hidden;
+    box-shadow: 2px 1px 1px rgb(121, 18, 18) ;
+    cursor: pointer;
+}
+
+.attack:active{
+    transform: scale(0.9);
+    box-shadow: none;
+}
+.attack:focus{
+    box-shadow: none;
+    outline: none;
+}
+
+.divAlphabet{
+    display: flex;
+    flex-direction: column;
+    font-family: "pokemon";
+    text-shadow: 1.5px 1px  grey;
+}
+
+
+.alphabet{
+    text-shadow: 1.5px 1px  grey;
+    font-family: "pokemon";
+    background: transparent;
+    border-style:hidden;
+    box-shadow: 2px 1px 1px rgb(121, 18, 18) ;
+    cursor: pointer;
+}
+.alphabet:active{
+    transform: scale(0.9);
+    box-shadow: none;
+}
+.alphabet:focus{
+    box-shadow: none;
+    outline: none;
+}
+
+.divApi{
+    display: flex;
+    flex-direction: column;
+    font-family: "pokemon";
+    text-shadow: 1.5px 1px  grey;
+}
+
+
+.api{
+    text-shadow: 1.5px 1px  grey;
+    font-family: "pokemon";
+    background: transparent;
+    border-style:hidden;
+    box-shadow: 2px 1px 1px rgb(121, 18, 18) ;
+    cursor: pointer;
+}
+.api:active{
+    transform: scale(0.9);
+    box-shadow: none;
+}
+.api:focus{
+    box-shadow: none;
+    outline: none;
+}
+
+.divType{
+    display: flex;
+    flex-direction: column;
+    font-family: "pokemon";
+    text-shadow: 1.5px 1px  grey;
+}
+
+
+.filterType{
+    font-family: "pokemon";
+    text-shadow: 1.5px 1px  grey;
+    background: transparent;
+    border-style:hidden;
+    box-shadow: 2px 1px 1px rgb(121, 18, 18) ;
+    cursor: pointer;
+}
+.filterType:active{
+    transform: scale(0.9);
+    box-shadow: none;
+}
+.filterType:focus{
+    box-shadow: none;
+    outline: none;
+}
+
+.span1{
+cursor: default;
+}
+.span2{
+cursor: default
+}
+.span3{
+cursor: default;
+}
+.span4{
+cursor: default;
+}
+
+@media (max-width: 944px){
+    .div{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        margin: 1rem;
+    }
+}
+    

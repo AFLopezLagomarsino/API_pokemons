@@ -1,10 +1,12 @@
 import {useState, useEffect} from "react"
 import {useDispatch, useSelector} from "react-redux"
 import { getPokemons } from "../../Redux/actions/actions"
+import Loader from "../loader/Loader"
 import Card from "../Card/Card"
 import Pagination from "../Pagination/Pagination"
 import FilterAndOrder from "../Filter/Filter"
 import NavBar from "../NavBar/NavBar"
+import style from "./Home.module.css"
 
 function Home () {
     //estado global
@@ -31,31 +33,48 @@ function Home () {
         e.preventDefault()
         setCurrentPage(1)
     }
+    const [loader, setLoader] = useState(true)
+    useEffect(() => {
+        const timer =setTimeout(()=>{
+            setLoader(false)
+        },4500)
+        return () => clearTimeout(timer)
+    },[])
+
 
     return(
-        <div>
-            <h1> Pokedex </h1>
-            <div>
+    <div className={style.layout}>
+        <div className={style.home} >
+            <div className={style.navBar}>
+            <h1 className={style.title}> Pokedex </h1>
                 <NavBar/>
-            </div>
-            <div>
                 <FilterAndOrder handlerPage={e=>handlerPage(e)}/>
             </div>
-            <div>
-            <Pagination pokePerPage={pokePerPage} pokemons={allPokemons.length} paginate={paginate} currentPage={currentPage}/>
-            </div>
-            <div>
+            {
+                loader ? <Loader/> :
+            <div className={style.cards}>
                 {
                     currentPoke?.map((el) => {
                         return(
                             <div>
-                                <Card id ={el.id} name={el.name} image ={el.image} types= {el.types} />
+                                <Card key={el.id}id ={el.id} name={el.name} image ={el.imageSprite} imageSup ={el.image} types= {el.types} />
                             </div>
                             ) 
                         })
                     }
             </div>
+        }
+            <div className={style.pagination}>
+            <Pagination pokePerPage={pokePerPage} pokemons={allPokemons.length} paginate={paginate} currentPage={currentPage}/>
+            </div>
+            
+            {/* <div className={style.buttonAbout}>
+            <NavLink to= "/about">
+            <button className={style.buttonA}>About</button>
+            </NavLink>
+        </div> */}
         </div>
+    </div>
     )
 
 

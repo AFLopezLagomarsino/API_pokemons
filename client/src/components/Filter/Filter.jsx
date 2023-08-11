@@ -1,6 +1,7 @@
 import { filterByApiOrBd, filterByType, orderByAlphabet, orderByAttack, getPokemons, getTypes } from "../../Redux/actions/actions"
 import { useDispatch,useSelector } from "react-redux"
 import { useRef, useEffect } from "react"
+import style from "./Filter.module.css"
 function FilterAndOrder ({handlerPage}) {
         
     const dispatch = useDispatch()
@@ -42,33 +43,42 @@ function FilterAndOrder ({handlerPage}) {
         handlerPage(e)
     }
     return (
-    <div>
-        <button onClick={e=> handleClick(e)}>Reset filters</button>
-        <span>order for Attack:</span>
-        <select ref={refAttack} onChange={e => handlerOrderByAttack(e) }>
-            <option value="default">none</option>
-            <option value="asc">asc</option>
-            <option value="desc">desc</option>            
+    <div className={style.div}>
+        <button className={style.reset} onClick={e=> handleClick(e)}>Reset filters</button>
+        <div className={style.divAttack}>
+        <span className={style.span1}>Order for attack:</span>
+        <select className={style.attack} ref={refAttack} onChange={e => handlerOrderByAttack(e) }>
+            <option value="default">None</option>
+            <option value="asc">Asc</option>
+            <option value="desc">Desc</option>            
         </select>
-        <span>order for Alphabet:</span>
-        <select ref={refAlphabet} onChange={e => handlerOrderByAlphabet(e)}>
-            <option value="default">none</option>
-            <option value="asc">asc</option>
-            <option value="desc">desc</option>
+        </div>
+        <div className={style.divAlphabet}>
+        <span className={style.span2}>Order for alphabet:</span>
+        <select className={style.alphabet} ref={refAlphabet} onChange={e => handlerOrderByAlphabet(e)}>
+            <option value="default">None</option>
+            <option value="asc">Asc</option>
+            <option value="desc">Desc</option>
         </select>
-        <select onChange={e=> handlerFilterApiOrBd(e)}>
-            <option value="All">todos</option>
-            <option value="BD">Creados</option>
-            <option value="Api">de la API</option>
+        </div>
+        <div className={style.divApi}>
+        <span className={style.span3}>Filter By: </span>
+        <select className={style.api} onChange={e=> handlerFilterApiOrBd(e)}>
+            <option value="All">All</option>
+            <option value="BD">Created</option>
+            <option value="Api">API</option>
         </select>
-        <span>filtrar por tipos:</span>
-        <select onChange={(e)=>handlerFilter(e)}>
+        </div>
+        <div className={style.divType}>
+        <span className={style.span4}>Filter by type:</span>
+        <select onChange={(e)=>handlerFilter(e)} className={style.filterType}>
             {
                 alltypes.map((type) => {
                     return <option key={type} value={type}>{type}</option>
                 })
             }
         </select>
+        </div>
     </div>
 
     )

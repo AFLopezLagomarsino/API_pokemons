@@ -1,0 +1,228 @@
+@font-face{
+    font-family:"pokemon";
+    src:url("../../../public/pkmn_rbygsc/PKMN\ RBYGSC.ttf");
+}
+
+.div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 15rem;
+    height: 15rem;
+    box-sizing: border-box;
+    background: rgba(217, 217, 217, 0.58);
+    border: 1px solid white;
+    box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
+    backdrop-filter: blur(6px);
+    border-radius: 17px;
+    cursor: pointer;
+    transition: all 0.5s;
+    user-select: none;
+
+}
+.div:hover{
+    border: 1px solid black;
+    transform: scale(1.05);
+}
+.div:active{
+    transform: scale(0.95) rotateZ(1.7deg);
+}
+
+
+.name{
+    font-size: 1.3rem;
+    font-family: "pokemon";
+    text-shadow: 1.5px 1px  grey;
+    text-transform: uppercase;
+}
+
+
+
+
+.image{
+    width: 100px;
+    height: 100px;
+}
+
+.imageDefault{
+    width: 1%;
+    height: 1%;
+}
+
+
+.p{
+    text-align: center;
+    font-size: 0.8rem;
+    font-weight: bold;
+    font-family:"pokemon";
+    text-shadow: 1.5px 1px  grey;
+    color:azure;
+    text-transform: uppercase;
+}
+
+.bug{
+    background-color: rgb(13, 105, 13);
+    border-radius: 10%;
+    border: none;
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 0px 2px 0px grey;
+}
+.dark{
+    background-color: rgb(32, 28, 39);
+    border-radius: 1%;
+    border: none;
+    margin: 10px;
+    color: bisque;
+    padding: 5px;
+    box-shadow: 0px 2px 0px grey;
+}
+.dragon{
+    background-color:aqua;
+    border-radius: 10%;
+    border: none;
+    padding: 5px;
+    margin: 10px;
+    box-shadow: 0px 2px 0px grey;
+}
+.electric{
+    background-color: rgb(255, 255, 0);
+    border-radius: 10%;
+    border: none;
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 0px 2px 0px grey;
+}
+.fairy{
+    background-color: rgb(177, 1, 54);
+    border-radius: 10%;
+    border: none;
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 0px 2px 0px grey;
+}
+.fighting{
+    background-color: red;
+    border-radius: 10%;
+    border: none;
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 0px 2px 0px grey;
+}
+.fire{
+    background-color: red;
+    border-radius: 10%;
+    border: none;
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 0px 2px 0px grey;
+}
+.flying{
+    background-color: rgb(137, 158, 196);
+    border-radius: 10%;
+    border: none;
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 0px 2px 0px grey;
+}
+.ghost{
+    background-color: rgb(37, 3, 95);
+    border-radius: 10%;
+    border: none;
+    margin: 10px;
+    color: bisque;
+    padding: 5px;
+    box-shadow: 0px 2px 0px grey;
+}
+.grass{
+    background-color: rgb(62, 190, 62);
+    border-radius: 10%;
+    border: none;
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 0px 2px 0px grey;
+}
+.ground{
+    background-color: rgb(150, 78, 19);
+    border-radius: 10%;
+    border: none;
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 0px 2px 0px grey;
+}
+.ice{
+    background-color: aquamarine;
+    border-radius: 10%;
+    border: none;
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 0px 2px 0px grey;
+}
+.normal{
+    background-color: rgb(129, 65, 69);
+    border-radius: 10%;
+    border: none;
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 0px 2px 0px grey;
+}
+.poison{
+    background-color: purple;
+    border-radius: 10%;
+    border: none;
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 0px 2px 0px grey;
+}
+.psychic{
+    background-color: rgb(255, 0, 255);
+    border-radius: 10%;
+    border: none;
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 0px 2px 0px grey;
+}
+.shadow{
+    background-color: rgb(0, 0, 0);
+    border-radius: 10%;
+    border: none;
+    margin: 10px;
+    padding: 5px;
+    color: bisque;
+    box-shadow: 0px 2px 0px grey;
+}
+.rock{
+    background-color: rgb(63, 45, 19);
+    border-radius: 10%;
+    border: none;
+    margin: 10px;
+    padding: 5px;
+    color: bisque;
+    box-shadow: 0px 2px 0px grey;
+}
+.steel{
+    background-color: rgb(42, 224, 179);
+    border-radius: 10%;
+    border: none;
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 0px 2px 0px grey;
+}
+.water{
+    background-color: blue;
+    color: bisque;
+    border-radius: 10%;
+    border: none;
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 0px 2px 0px grey;
+}
+.unknown{
+    background-color: rgb(255, 255, 255);
+    border-radius: 10%;
+    border: none;
+    margin: 10px;
+    padding: 5px;
+    box-shadow: 0px 2px 0px grey;
+}
