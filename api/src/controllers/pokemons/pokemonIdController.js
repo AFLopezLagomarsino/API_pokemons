@@ -24,7 +24,8 @@ const PokemonByIdInAPI = async(id) =>{
         speed: data.stats[5]?.base_stat,
         defense: data.stats[2]?.base_stat,
         types: data.types.map((el)=> el.type.name),
-        image: data.sprites.other["official-artwork"].front_default
+        image: data.sprites.other["official-artwork"].front_default,
+        imageSprite: data.sprites.front_default
     }
     return pokemon
 }
