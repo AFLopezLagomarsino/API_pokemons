@@ -20,7 +20,15 @@ function Form (){
         weight: "",
         health:"",
     })
-    const [errors, setErrors] = useState({})
+    const [errors, setErrors] = useState({
+        name: "Pokemon's name required",
+        speed: "Pokemon's speed required",
+        attack: "Pokemon's attack required",
+        height: "Pokemon's height required",
+        defense:"Pokemon's defense required",
+        weight: "Pokemon's weight required",
+        health:"Pokemon's health required",
+    })
     const navigate = useNavigate()
 
 
