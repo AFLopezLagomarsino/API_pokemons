@@ -13,7 +13,7 @@ export const POSTPOKEMON = "POSTPOKEMON" // check
 export const getPokemons = () => {
     try {
         return async function(dispatch){
-            const pokemons = await axios.get("http://localhost:3001/pokemon")
+            const pokemons = await axios.get("/pokemon")
             return dispatch ({
                 type: GET_POKEMON,
                 payload: pokemons.data
@@ -21,14 +21,14 @@ export const getPokemons = () => {
         }
     //eslint-disable-next-line no-unreachable    
     } catch (error) {
-        console.log(error)
+        alert("Error in Pokemons")
     }
 }
 
 export function getTypes(){
     try {
         return async function(dispatch) {
-            const types = await axios.get("http://localhost:3001/types")
+            const types = await axios.get("/types")
             return dispatch ({
                 type: GET_TYPES,
                 payload: types.data
@@ -36,13 +36,13 @@ export function getTypes(){
         }
             //eslint-disable-next-line no-unreachable    
     } catch (error) {
-        console.log(error)
+        alert("Error in Types")
     }
 }
 export function getByName (name) {
     try {
         return async function (dispatch){
-            let {data} = await axios.get(`http://localhost:3001/pokemon?name=${name}`)
+            let {data} = await axios.get(`/pokemon?name=${name}`)
             let pokemon = Array.isArray(data)? data : [data]
             if(pokemon.length === 0){
                 alert("no existe ese pokemon, crealo!")
@@ -62,7 +62,7 @@ export function getByName (name) {
 export function getDetail(id){
     try {
         return async function(dispatch){
-            let detail = await axios.get(`http://localhost:3001/pokemon/${id}`)
+            let detail = await axios.get(`/pokemon/${id}`)
             return dispatch({
                 type: DETAILBYID,
                 payload: detail.data
@@ -70,7 +70,7 @@ export function getDetail(id){
         }
         //eslint-disable-next-line no-unreachable
     } catch (error) {
-        console.log(error)
+        alert("This pokemon haven't details!")
     }
 }
 
@@ -105,7 +105,7 @@ export function orderByAttack(payload){
 export function postPokemon(payload){
     try {
         return async function(dispatch){
-            const post = await axios.post ("http://localhost:3001/pokemon", payload)
+            const post = await axios.post ("/pokemon", payload)
             return dispatch({
                 type: POSTPOKEMON,
                 payload: post.data
@@ -113,7 +113,7 @@ export function postPokemon(payload){
         }
         //eslint-disable-next-line no-unreachable
     } catch (error) {
-        console.log(error)
+        alert("Error at create a Pokemon!")
     }
 }
 
