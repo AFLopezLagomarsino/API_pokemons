@@ -8,7 +8,7 @@ import Error404 from "./components/Error404/Error404"
 import axios from 'axios';
 
 
-axios.defaults.baseURL = "http://localhost:3001/";
+axios.defaults.baseURL = "https://server-pokemon-d4kh.onrender.com";
 
 function App() {
   return (
