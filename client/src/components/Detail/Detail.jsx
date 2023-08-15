@@ -1,7 +1,7 @@
 import { getDetail } from "../../Redux/actions/actions"
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect } from "react"
-import { NavLink, useParams } from "react-router-dom"
+import { NavLink, useParams, Link } from "react-router-dom"
 import style from "./Detail.module.css"
 
 function Detail(){
