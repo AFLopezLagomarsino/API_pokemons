@@ -13,7 +13,8 @@ function Detail(){
     },[id, dispatch])
     const imgDefault = "https://simg.nicepng.com/png/small/891-8912776_poke-great-ultra-master-ball-pokeball-pixel-png.png"
     function TypeClassName(type) {
-        switch (type) {
+      const typeName =  typeof type  === "object"? type.name : type
+        switch (typeName) {
           case "bug":
             return style.bug;
           case "dark":
@@ -86,7 +87,7 @@ function Detail(){
                 <div className={style.der}>
                     
                     <div className={style.name}>    
-                        <h1 className={style.h1}>{pokemon.name} - {pokemon.id} </h1>
+                        <h1 className={style.h1}>{pokemon.name} - {isNaN(pokemon.id)?pokemon.id.substr(0,8):pokemon.id} </h1>
                     </div>       
                         <hr />
                     <div className={style.stats}>

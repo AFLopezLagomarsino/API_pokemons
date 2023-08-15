@@ -138,14 +138,14 @@ function Form (){
                 </div>
                 <div className={style.height}>
                     <label>height:</label>
-                    <input type="number" min="0" value={input.height} name="height" placeholder="pokemon's height in cm..." onChange={e=>handleChange(e)}/>
+                    <input type="number" min="0" value={input.height} name="height" placeholder="pokemon's height in dm..." onChange={e=>handleChange(e)}/>
                     {
                         errors.height && <span>{errors.height}</span>
                     }
                 </div>
                 <div className={style.weight}>
                     <label>weight:</label>
-                    <input type="number" min="" value={input.weight} name="weight" placeholder="pokemon's weight in kg..." onChange={e=>handleChange(e)}/>
+                    <input type="number" min="0" value={input.weight} name="weight" placeholder="pokemon's weight in hg..." onChange={e=>handleChange(e)}/>
                     {
                         errors.weight && <span>{errors.weight}</span>
                     }
