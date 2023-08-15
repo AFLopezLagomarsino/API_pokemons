@@ -87,7 +87,7 @@ function Detail(){
                 <div className={style.der}>
                     
                     <div className={style.name}>    
-                        <h1 className={style.h1}>{pokemon.name} - {isNaN(pokemon.id)?pokemon.id.substr(0,8):pokemon.id} </h1>
+                        <h1 className={style.h1}>{pokemon.name} - {isNaN(pokemon.id)?pokemon.id.substr(0,4):pokemon.id} </h1>
                     </div>       
                         <hr />
                     <div className={style.stats}>
