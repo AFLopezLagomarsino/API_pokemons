@@ -41,12 +41,10 @@ function Form (){
             ...input,
             [e.target.name]: e.target.value
         })
-        console.log(input)
         setErrors(validate({
             ...input,
             [e.target.name]: e.target.value
         }))
-        console.log(errors)
     }
 
     function handleSubmit(e){
@@ -145,14 +143,14 @@ function Form (){
                 </div>
                 <div className={style.weight}>
                     <label>weight:</label>
-                    <input type="number" min="0" value={input.weight} name="weight" placeholder="pokemon's weight in hg..." onChange={e=>handleChange(e)}/>
+                    <input type="number" min="" value={input.weight} name="weight" placeholder="pokemon's weight in hg..." onChange={e=>handleChange(e)}/>
                     {
                         errors.weight && <span>{errors.weight}</span>
                     }
                 </div>
                 <div className={style.image}>
                     <label>image:</label>
-                    <input type="text" value={input.image} name="image" placeholder="url image..." onChange={e=>handleChange(e)}/>
+                    <input type="text" value={input.image} name="image" onChange={e=>handleChange(e)}/>
                 </div>
                 <div className={style.types}>
                     <label>types:</label>

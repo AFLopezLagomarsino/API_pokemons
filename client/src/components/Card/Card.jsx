@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import style from "./Card.module.css"
 function Card (props) {
-   const {name, image, types, id} = props
+   const {name, image, types, id, imageSup} = props
 
    const navigate = useNavigate()
    const imgDefault = "https://simg.nicepng.com/png/small/891-8912776_poke-great-ultra-master-ball-pokeball-pixel-png.png"
@@ -59,8 +59,8 @@ function Card (props) {
       <div className={style.div}>
          <h2 className={style.name}>{name}</h2>
          {
-           image? <img src={image} alt={name} onClick={handleNavigate} className={style.image}/>
-           : <img src={imgDefault} alt={name} className={style.image} onClick={handleNavigate} />
+           image || imageSup? <img src={image || imageSup} alt={name} onClick={handleNavigate} className={style.image}/>
+           : <img src={imgDefault} alt={name} className={style.image} onClick={handleNavigate}  />
          }
          <p className={style.p}>{
              types.map((type) => {

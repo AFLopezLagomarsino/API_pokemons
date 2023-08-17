@@ -18,10 +18,16 @@ function SearchBar() {
         setName("")
     }
 
+    function handleKeyDown(e){
+        if(e.key === "Enter"){
+            handleSubmit(e)
+        }
+    }
+
     return (
         <div className={style.div}>
             {/* se agrega value al input para que se pueda limpiar la busqueda */}
-          <input type="text" placeholder="Search pokemon..." value={name} onChange={(e)=>inputHandleChange(e)} className={style.search} />
+          <input type="text" placeholder="Search pokemon..." value={name} onChange={(e)=>inputHandleChange(e)} onKeyDown={(e)=> handleKeyDown(e)} className={style.search} />
           <button type="submit" onClick={e => handleSubmit(e)} className={style.button}>🔍</button>  
         </div>
     )

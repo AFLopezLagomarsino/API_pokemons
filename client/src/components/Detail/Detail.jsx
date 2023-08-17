@@ -1,7 +1,7 @@
 import { getDetail } from "../../Redux/actions/actions"
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect } from "react"
-import { NavLink, useParams, Link } from "react-router-dom"
+import { NavLink, useParams, } from "react-router-dom"
 import style from "./Detail.module.css"
 
 function Detail(){
@@ -11,9 +11,10 @@ function Detail(){
     useEffect(()=>{
         dispatch(getDetail(id))
     },[id, dispatch])
+    
     const imgDefault = "https://simg.nicepng.com/png/small/891-8912776_poke-great-ultra-master-ball-pokeball-pixel-png.png"
     function TypeClassName(type) {
-      const typeName =  typeof type  === "object"? type.name : type
+      const typeName = typeof type === "object" ? type.name : type;
         switch (typeName) {
           case "bug":
             return style.bug;
@@ -56,6 +57,7 @@ function Detail(){
           default:
             return style.unknown;
       }
+
     }
 
     return(
@@ -87,7 +89,7 @@ function Detail(){
                 <div className={style.der}>
                     
                     <div className={style.name}>    
-                        <h1 className={style.h1}>{pokemon.name} - {isNaN(pokemon.id)?pokemon.id.substr(0,4):pokemon.id} </h1>
+                        <h1 className={style.h1}>{pokemon.name} - {isNaN(pokemon.id)? pokemon.id.substr(0,4) : pokemon.id} </h1>
                     </div>       
                         <hr />
                     <div className={style.stats}>

@@ -28,18 +28,19 @@ function Home () {
         dispatch(getPokemons())
     },[dispatch])
 
-
+//vuelve a la pagina 1
     function handlerPage(e){
         e.preventDefault()
         setCurrentPage(1)
     }
+
     const [loader, setLoader] = useState(true)
+
     useEffect(() => {
-        const timer =setTimeout(()=>{
+        if(currentPoke && currentPoke.length>0){ 
             setLoader(false)
-        },4500)
-        return () => clearTimeout(timer)
-    },[])
+        }
+    },[currentPoke])
 
 
     return(
@@ -57,7 +58,7 @@ function Home () {
                     currentPoke?.map((el) => {
                         return(
                             <div>
-                                <Card key={el.id}id ={el.id} name={el.name} image ={el.imageSprite} imageSup ={el.image} types= {el.types} />
+                                <Card key={el.id} id ={el.id} name={el.name} image ={el.imageSprite} imageSup ={el.image} types= {el.types} />
                             </div>
                             ) 
                         })
