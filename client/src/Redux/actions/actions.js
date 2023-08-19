@@ -9,6 +9,7 @@ export const FILTERBYTYPE = "FILTERBYTYPE" // check
 export const ORDERBYALPHABET = "ORDERBYALPHABET" // check
 export const ORDERBYATTACK = "ORDERBYATTACK" // check
 export const POSTPOKEMON = "POSTPOKEMON" // check
+export const CLEARDETAIL = "CLEARDETAIL"
 
 export const getPokemons = () => {
     try {
@@ -116,4 +117,8 @@ export function postPokemon(payload){
         alert("Error at create a Pokemon!")
     }
 }
-
+export function clearDetail(){
+    return {
+        type: CLEARDETAIL
+    }
+}

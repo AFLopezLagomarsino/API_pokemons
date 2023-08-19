@@ -1,4 +1,4 @@
-import { getDetail } from "../../Redux/actions/actions"
+import { clearDetail, getDetail } from "../../Redux/actions/actions"
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect } from "react"
 import { NavLink, useParams, } from "react-router-dom"
@@ -10,6 +10,9 @@ function Detail(){
    const {id} = useParams()
     useEffect(()=>{
         dispatch(getDetail(id))
+        return() => {
+          dispatch(clearDetail())
+        }
     },[id, dispatch])
     
     const imgDefault = "https://simg.nicepng.com/png/small/891-8912776_poke-great-ultra-master-ball-pokeball-pixel-png.png"

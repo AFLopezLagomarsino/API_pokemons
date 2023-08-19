@@ -2,14 +2,14 @@ import { NavLink } from "react-router-dom"
 import SearchBar from "../SearchBar/SearchBar"
 import style from "./Navbar.module.css"
 
-function NavBar () {
+function NavBar ({handlerPage}) {
 
 
     return (
         
         <div className={style.divPrincipal}>
             <div className={style.search}>
-                <SearchBar/>
+                <SearchBar handlerPageOne = {handlerPage}/>
             </div>
             <div className={style.divButton}>
                     <NavLink to= "/pokemon">

@@ -51,6 +51,17 @@ html{
     flex-basis: 25%;
 }
 
+.span{
+    font-family: "pokemon";
+    font-size: 3rem;
+    text-shadow: 2px 1.5px  grey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 10rem;
+}
+
+
 /* .buttonAbout{
     display: flex;
     align-items: center;

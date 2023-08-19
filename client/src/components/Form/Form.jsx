@@ -166,14 +166,19 @@ function Form (){
                     <div>
                     {
                     input.types.map((el) => (
-                        <p>{el} <button type="button" onClick={()=>handleDelete(el)}>X</button></p>
-                        
+                        <p>
+                            {el} <button type="button" onClick={()=>handleDelete(el)}>X</button>
+                        </p>
                         ))
                     }
                         </div>
                 </div>
             <div className={style.buttonS}>
-                <button type="submit"> crear personaje </button>
+                {
+                    input.types.length > 0 && (
+                        <button type="submit"> crear personaje </button>
+                    )
+                }
             </div>
         </form>
             </div>

@@ -2,7 +2,7 @@ import { getByName } from "../../Redux/actions/actions"
 import { useState } from "react"
 import { useDispatch } from "react-redux"
 import style from "./SearchBar.module.css"
-function SearchBar() {
+function SearchBar({handlerPageOne}) {
 
     const dispatch = useDispatch()
 
@@ -16,6 +16,7 @@ function SearchBar() {
         e.preventDefault()
         dispatch(getByName(name))
         setName("")
+        handlerPageOne(e)
     }
 
     function handleKeyDown(e){

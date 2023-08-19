@@ -8,6 +8,7 @@ import {
     ORDERBYALPHABET,
     ORDERBYATTACK,
     POSTPOKEMON,
+    CLEARDETAIL
 } from "../actions/actions"
 
 const initialState = {
@@ -128,6 +129,11 @@ function rootReducer (state = initialState, action) {
             return{
                 ...state
             }
+            case CLEARDETAIL:
+                return {
+                    ...state,
+                    detail: []
+                }
     
         default:
             return {

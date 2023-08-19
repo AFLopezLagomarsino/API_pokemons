@@ -15,6 +15,7 @@ function FilterAndOrder ({handlerPage}) {
 
    function handlerFilterApiOrBd(e){
        dispatch(filterByApiOrBd(e.target.value))
+       handlerPage(e)
     }
 
     function handlerOrderByAlphabet(e){

@@ -48,20 +48,23 @@ function Home () {
         <div className={style.home} >
             <div className={style.navBar}>
             <h1 className={style.title}> Pokedex </h1>
-                <NavBar/>
+                <NavBar handlerPage = {e => handlerPage(e)}/>
                 <FilterAndOrder handlerPage={e=>handlerPage(e)}/>
             </div>
             {
                 loader ? <Loader/> :
             <div className={style.cards}>
                 {
-                    currentPoke?.map((el) => {
+                    currentPoke.length? currentPoke.map((el) => {
                         return(
                             <div>
                                 <Card key={el.id} id ={el.id} name={el.name} image ={el.imageSprite} imageSup ={el.image} types= {el.types} />
                             </div>
                             ) 
-                        })
+                        }) :
+                        <div className={style.span}>
+                            <span>Doesn't exist any pokemon here</span>
+                        </div>
                     }
             </div>
         }
