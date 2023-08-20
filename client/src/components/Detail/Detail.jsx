@@ -1,13 +1,15 @@
-import { clearDetail, getDetail } from "../../Redux/actions/actions"
+import { getDetail, clearDetail } from "../../Redux/actions/actions"
 import { useSelector, useDispatch } from "react-redux"
 import { useEffect } from "react"
-import { NavLink, useParams, } from "react-router-dom"
+import { useParams, useNavigate } from "react-router-dom"
 import style from "./Detail.module.css"
 
 function Detail(){
     const dispatch = useDispatch()
+    const navigate = useNavigate()
     const pokemon = useSelector((state) => state.detail)
    const {id} = useParams()
+
     useEffect(()=>{
         dispatch(getDetail(id))
         return() => {
@@ -16,6 +18,7 @@ function Detail(){
     },[id, dispatch])
     
     const imgDefault = "https://simg.nicepng.com/png/small/891-8912776_poke-great-ultra-master-ball-pokeball-pixel-png.png"
+    
     function TypeClassName(type) {
       const typeName = typeof type === "object" ? type.name : type;
         switch (typeName) {
@@ -62,6 +65,10 @@ function Detail(){
       }
 
     }
+    
+    function handleNavigate(){
+        navigate(-1)
+    }
 
     return(
         <div className={style.layout}>
@@ -106,9 +113,7 @@ function Detail(){
                 </div>
         </div> : <p>Loading...</p>
             }
-            <NavLink to="/home">
-            <button className={style.back}>go Home</button>
-            </NavLink>
+            <button className={style.back} onClick={handleNavigate}>go Home</button>
         </div>
     )
 }
