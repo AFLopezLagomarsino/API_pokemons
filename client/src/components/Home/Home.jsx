@@ -12,21 +12,28 @@ function Home () {
     //estado global
     const dispatch = useDispatch()
     const allPokemons = useSelector(state => state.pokemons)
+    const filterApplied = useSelector(state => state.filter)
     // paginado
     const [currentPage, setCurrentPage] = useState(1)
     const [pokePerPage, setPokePerPage] = useState(12)
     const indexOfLastPoke = currentPage * pokePerPage // 12
     const indexOfFirstPoke = indexOfLastPoke - pokePerPage // 0
     const currentPoke = allPokemons.slice(indexOfFirstPoke, indexOfLastPoke)
-
+    
     const paginate = (pageNumber) =>{
         setCurrentPage(pageNumber)
     }
 
+    const [isEffectExecuted, setIsEffectExecuted] = useState(false)
 
     useEffect(() => {
-        dispatch(getPokemons())
-    },[dispatch])
+        if(!isEffectExecuted && filterApplied === null){
+            dispatch(getPokemons())
+            setIsEffectExecuted(true)
+            
+        }
+    },[isEffectExecuted, filterApplied, dispatch])
+
 
 //vuelve a la pagina 1
     function handlerPage(e){
@@ -49,7 +56,7 @@ function Home () {
             <div className={style.navBar}>
             <h1 className={style.title}> Pokedex </h1>
                 <NavBar handlerPage = {e => handlerPage(e)}/>
-                <FilterAndOrder handlerPage={e=>handlerPage(e)}/>
+                <FilterAndOrder handlerPage={e=>handlerPage(e)} setLoader={setLoader}/>
             </div>
             {
                 loader ? <Loader/> :
@@ -61,7 +68,7 @@ function Home () {
                                 <Card key={el.id} id ={el.id} name={el.name} image ={el.imageSprite} imageSup ={el.image} types= {el.types} />
                             </div>
                             ) 
-                        }) :
+                        }) : 
                         <div className={style.span}>
                             <span>Doesn't exist any pokemon here</span>
                         </div>
@@ -69,7 +76,7 @@ function Home () {
             </div>
         }
             <div className={style.pagination}>
-            <Pagination pokePerPage={pokePerPage} pokemons={allPokemons.length} paginate={paginate} currentPage={currentPage}/>
+            <Pagination pokePerPage={pokePerPage} pokemons={allPokemons.length} paginate={paginate} currentPage={currentPage} setCurrent={setCurrentPage}/>
             </div>
             
             {/* <div className={style.buttonAbout}>
