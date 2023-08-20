@@ -1,13 +1,15 @@
-import { filterByApiOrBd, filterByType, orderByAlphabet, orderByAttack, getPokemons, getTypes } from "../../Redux/actions/actions"
+import { filterByApiOrBd, filterByType, orderByAlphabet, orderByAttack, getTypes, resetFilters, getPokemons } from "../../Redux/actions/actions"
 import { useDispatch,useSelector } from "react-redux"
 import { useRef, useEffect } from "react"
 import style from "./Filter.module.css"
-function FilterAndOrder ({handlerPage}) {
+function FilterAndOrder ({handlerPage, setLoader}) {
         
     const dispatch = useDispatch()
     const alltypes = useSelector(state => state.types)
+
     const refAttack = useRef()
     const refAlphabet = useRef()
+    const refType = useRef()
 
     useEffect(()=>{
         dispatch(getTypes())
@@ -33,11 +35,27 @@ function FilterAndOrder ({handlerPage}) {
     }
     function handleClick(e){
         e.preventDefault()
-        dispatch(getPokemons())
-        handlerPage(e)
-        refAlphabet.current.value = "default"
-        refAttack.current.value = "default"
+        
+        const resetFilterAction = dispatch(resetFilters())
+        if (typeof resetFilterAction.then === 'function') {
+            resetFilterAction.then(() => {
+                dispatch(getPokemons())
+                handlerPage(e)
+                refAlphabet.current.value = "default"
+                refAttack.current.value = "default"
+                refType.current.value = "All"
+            });
+          } else {
+            dispatch(getPokemons()) 
+            handlerPage(e)
+            refAlphabet.current.value = "default"
+            refAttack.current.value = "default"
+            refType.current.value = "All"
+          }
     }
+
+        
+    
     function handlerFilter(e){
         e.preventDefault(e)
         dispatch(filterByType(e.target.value))
@@ -45,7 +63,9 @@ function FilterAndOrder ({handlerPage}) {
     }
     return (
     <div className={style.div}>
+
         <button className={style.reset} onClick={e=> handleClick(e)}>Reset filters</button>
+
         <div className={style.divAttack}>
         <span className={style.span1}>Order for attack:</span>
         <select className={style.attack} ref={refAttack} onChange={e => handlerOrderByAttack(e) }>
@@ -72,8 +92,9 @@ function FilterAndOrder ({handlerPage}) {
         </div>
         <div className={style.divType}>
         <span className={style.span4}>Filter by type:</span>
-        <select onChange={(e)=>handlerFilter(e)} className={style.filterType}>
-            {
+        <select onChange={(e)=>handlerFilter(e)} className={style.filterType} ref={refType}>
+            <option value="All">All</option>
+            {  
                 alltypes.map((type) => {
                     return <option key={type} value={type}>{type}</option>
                 })
@@ -81,7 +102,6 @@ function FilterAndOrder ({handlerPage}) {
         </select>
         </div>
     </div>
-
     )
 }
 
