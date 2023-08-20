@@ -8,14 +8,16 @@ import {
     ORDERBYALPHABET,
     ORDERBYATTACK,
     POSTPOKEMON,
-    CLEARDETAIL
+    CLEARDETAIL,
+    RESET_FILTERS
 } from "../actions/actions"
 
 const initialState = {
     pokemons: [],
     types: [],
     detail: [],
-    pokeCopy: []
+    pokeCopy: [],
+    filter: null
 }
 
 function rootReducer (state = initialState, action) {
@@ -47,14 +49,14 @@ function rootReducer (state = initialState, action) {
             if (action.payload === "BD"){
                 filteredPokemons = state.pokeCopy.filter((pokemon)=> isNaN(pokemon.id))
             } else if(action.payload === "Api"){
-                filteredPokemons = state.pokeCopy.filter((pokemon)=>  !isNaN(pokemon.id))
+                filteredPokemons = state.pokeCopy.filter((pokemon)=> !isNaN(pokemon.id))
             }else{
                 filteredPokemons = state.pokeCopy
             }
-            console.log(filteredPokemons)
             return {
                 ...state,
-                pokemons: filteredPokemons
+                pokemons: filteredPokemons,
+                filter: action.payload
             }
 
             case FILTERBYTYPE:
@@ -70,9 +72,13 @@ function rootReducer (state = initialState, action) {
                       }
                       return false;
                     });
+                    if(action.payload === "All"){
+                        filteredType = state.pokeCopy
+                    }
                 return {
                   ...state,
                   pokemons: filteredType,
+                  filter: action.payload
                 };
 
         case ORDERBYALPHABET:
@@ -98,7 +104,8 @@ function rootReducer (state = initialState, action) {
             })
             return {
                 ...state,
-                pokemons: orderSortAlphabet
+                pokemons: orderSortAlphabet,
+                filter: action.payload
             }
         case ORDERBYATTACK:
             const pokesCopy = [...state.pokemons]
@@ -123,18 +130,24 @@ function rootReducer (state = initialState, action) {
             })
             return {
                 ...state,
-                pokemons: orderSortAttack
+                pokemons: orderSortAttack,
+                filter: action.payload
             }
         case POSTPOKEMON:
             return{
                 ...state
             }
-            case CLEARDETAIL:
-                return {
-                    ...state,
-                    detail: []
-                }
-    
+        case CLEARDETAIL:
+            return {
+                ...state,
+                detail: []
+            }
+        case RESET_FILTERS:
+            return{
+                ...state,
+                filter: null
+            }
+            
         default:
             return {
                 ...state
